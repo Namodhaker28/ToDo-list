@@ -1,0 +1,100 @@
+import React ,{useState} from 'react'
+import { Link ,useNavigate} from "react-router-dom";
+import axios from 'axios';
+import swal from 'sweetalert'
+
+export default function Signup() {
+    const [password,setPassword]=useState()
+    const [email,setEmail]=useState()
+    const [number,setNumber]=useState()
+    const [name,setName]=useState()
+
+    const navigate = useNavigate();
+
+    const signUpUser = async ()=>{
+        const userDetails = {
+            email: email,
+            password: password,
+            phone: number,
+            name: name,
+        }
+        console.log("credentials",userDetails)
+
+        try {
+          const response = await  axios.post(`http://localhost:4000/api/v1/signup`,userDetails,{
+           headers :{ "Content-Type":"application/json"}
+          })
+          console.log("response",response)
+          if (response.status==200)
+          {
+            navigate("/login")
+          }
+          
+        } catch (error) {
+          swal("Oops!", error.response.data.message ,"error");
+            console.log("errrr",error)
+        }
+    }
+
+  return (
+    <div className="container-fluid  d-flex flex-column align-items-center ">
+      <h1 className="py-4 my-4">Login</h1>
+      <div class="mb-3 col-3">
+        <label for="exampleFormControlInput1" class="form-label fs-5">
+          Name
+        </label>
+        <input 
+        value={name}
+        onChange={(e)=>{setName(e.target.value)}}
+          type="name"
+          class="form-control p-3"
+          id="exampleFormControlInput1"
+          placeholder=""
+        />
+        <label for="exampleFormControlInput1" class="form-label fs-5">
+          Phone Number
+        </label>
+        <input 
+        value={number}
+        onChange={(e)=>{setNumber(e.target.value)}}
+          type="number"
+          class="form-control p-3"
+          id="exampleFormControlInput1"
+          placeholder=""
+        />
+        <label for="exampleFormControlInput1" class="form-label fs-5">
+          Email address
+        </label>
+        <input 
+        value={email}
+        onChange={(e)=>{setEmail(e.target.value)}}
+          type="email"
+          class="form-control p-3"
+          id="exampleFormControlInput1"
+          placeholder="name@example.com"
+        />
+        <label for="inputPassword5" class="form-label fs-5">
+          Password
+        </label>
+        <input 
+        value={password}
+        onChange={(e)=>{setPassword(e.target.value)}}
+          type="password"
+          id="inputPassword5"
+          class="form-control p-3"
+          aria-labelledby="passwordHelpBlock"
+        />
+        <div id="passwordHelpBlock" class="form-text">
+          Your password must be minimum 8 characters long
+        </div>
+        <div className="row">
+          <button type="submit"  onClick={signUpUser} class=" my-4 btn btn-primary  ">
+            Register
+          </button>
+        </div>
+        Alredy have an account 
+        <Link to="/Login" className="px-2">Login </Link>
+      </div>
+    </div>
+  )
+}
