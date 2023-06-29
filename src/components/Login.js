@@ -1,10 +1,12 @@
 import React , {useState}from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
+import { config } from "../config";
 
 export default function  Login() {
     const [password,setPassword]=useState()
     const [email,setEmail]=useState()
+    const backend = config.backend_url
 
     const navigate = useNavigate();
 
@@ -16,7 +18,7 @@ export default function  Login() {
         console.log("credentials",credentials)
 
         try {
-          const response = await  axios.post(`http://localhost:4000/api/v1/signin`,credentials,{
+          const response = await  axios.post(`${backend}/signin`,credentials,{
            headers :{ "Content-Type":"application/json"}
           })
           if (response.status==200)

@@ -2,12 +2,14 @@ import React ,{useState} from 'react'
 import { Link ,useNavigate} from "react-router-dom";
 import axios from 'axios';
 import swal from 'sweetalert'
+import { config } from '../config';
 
 export default function Signup() {
     const [password,setPassword]=useState()
     const [email,setEmail]=useState()
     const [number,setNumber]=useState()
     const [name,setName]=useState()
+    const backend = config.backend_url
 
     const navigate = useNavigate();
 
@@ -21,7 +23,7 @@ export default function Signup() {
         console.log("credentials",userDetails)
 
         try {
-          const response = await  axios.post(`http://localhost:4000/api/v1/signup`,userDetails,{
+          const response = await  axios.post(`${backend}/signup`,userDetails,{
            headers :{ "Content-Type":"application/json"}
           })
           console.log("response",response)

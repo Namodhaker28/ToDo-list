@@ -2,11 +2,12 @@ import React, { useContext, useState } from "react";
 import axios from "axios";
 import { fetchTodos } from "../App";
 import StateContext from "./Context/StateContext";
+import { config } from "../config";
 
 function Form(props) {
   const [name, setName] = useState("");
   const dataContext = useContext(StateContext)
-
+  const backend = config.backend_url
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!name.trim()) {
@@ -18,7 +19,7 @@ function Form(props) {
     };
 
     const config = {
-      url: "http://localhost:4000/api/v1/todo",
+      url: `${backend}/todo`,
       method: "post",
       headers: {
         "Content-Type": "application/json",

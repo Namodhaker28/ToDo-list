@@ -16,6 +16,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import axios from "axios";
 import StateContext from "./components/Context/StateContext";
+import { config } from "./config";
 
 const FILTER_MAP = {
   All: "All",
@@ -24,9 +25,11 @@ const FILTER_MAP = {
 };
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 
+const backend= config.backend_url
+
 export const fetchTodos = async () => {
   const config = {
-    url: "http://localhost:4000/api/v1/user",
+    url: `${backend}/user`,
     method: "GET",
     headers: {
       Authorization: localStorage.getItem("token"),

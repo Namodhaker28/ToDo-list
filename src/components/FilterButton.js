@@ -1,16 +1,17 @@
 import React, { useContext } from "react";
 import StateContext from "./Context/StateContext";
 import axios from "axios";
+ import { config } from "../config";
 
 function FilterButton(props) {
   const dataContext = useContext(StateContext)
-
+  const backend = config.backend_url
    const Filter = async () =>{
     var fetchUrl
     if(props.name!=="All")
-    fetchUrl =`http://localhost:4000/api/v1/user?isActive=${props.name === 'Active' ? true : false}`
+    fetchUrl =`${backend}/user?isActive=${props.name === 'Active' ? true : false}`
     else
-    fetchUrl =`http://localhost:4000/api/v1/user`
+    fetchUrl =`${backend}/user`
     const config = {
       url: fetchUrl,
       method: 'GET',

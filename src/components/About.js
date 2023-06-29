@@ -2,15 +2,16 @@ import React,{useEffect, useState} from "react";
 import "./about.css";
 import '@fortawesome/fontawesome-free/css/all.css';
 import axios from "axios";
+import { config } from "../config";
 
 export default function About() {
   const [user,setUser]=useState();
-  
+  const backend = config.backend_url
 
   useEffect(() => {
     const getUserData = async () => {
       try {
-        const res = await axios.get('http://localhost:4000/api/v1/user',{
+        const res = await axios.get(`${backend}/user`,{
           headers:{
             Authorization:localStorage.getItem('token')
           }

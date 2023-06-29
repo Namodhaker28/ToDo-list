@@ -2,8 +2,11 @@ import axios from "axios";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import StateContext from "./Context/StateContext";
 import { fetchTodos } from "../App";
+import { config } from "../config";
+
 
 function usePrevious(value) {
+
   const ref = useRef();
   useEffect(() => {
     ref.current = value;
@@ -12,6 +15,7 @@ function usePrevious(value) {
 }
 
 export default function Todo(props) {
+  const backend = config.backend_url  
   const [isEditing, setEditing] = useState(false);
   const [newName, setNewName] = useState("");
   const dataContext = useContext(StateContext);
@@ -29,7 +33,7 @@ export default function Todo(props) {
     }
     const body = { todo: newName };
     const config = {
-      url: `http://localhost:4000/api/v1/todo/${props.id}`,
+      url: `${backend}/todo/${props.id}`,
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -51,7 +55,7 @@ export default function Todo(props) {
 
   const ToggleStatus = async () => {
     const config = {
-      url: `http://localhost:4000/api/v1/todo/status/${props.id}`,
+      url: `${backend}/todo/status/${props.id}`,
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -69,7 +73,7 @@ export default function Todo(props) {
 
   const deleteTask = async () => {
     const config = {
-      url: `http://localhost:4000/api/v1/todo/${props.id}`,
+      url: `${backend}/todo/${props.id}`,
       method: "delete",
       headers: {
         "Content-Type": "application/json",
