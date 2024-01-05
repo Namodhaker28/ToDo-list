@@ -15,7 +15,6 @@ export default function  Login() {
             email: email,
             password: password,
         }
-        console.log("credentials",credentials)
 
         try {
           const response = await  axios.post(`${backend}/signin`,credentials,{
@@ -27,9 +26,11 @@ export default function  Login() {
             navigate("/")
             window.location.reload()
           }
+
           console.log(response)
         } catch (error) {
             console.log(error)
+            swal("Error", "Invalid Credentials", "error")
         }
     }
 
@@ -38,7 +39,7 @@ export default function  Login() {
   return (
     <div className="container-fluid  d-flex flex-column align-items-center ">
       <h1 className="py-4 my-4">Login</h1>
-      <div class="mb-3 col-3">
+      <div class="mb-3 col-3" style={{width: "90%"}}>
         <label for="exampleFormControlInput1" class="form-label">
           Email address
         </label>
