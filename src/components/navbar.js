@@ -11,7 +11,7 @@ const NavbarComponent = () => {
       </div>
       <div className="links">
         <Link to="/about">You</Link>
-         <Link onClick={()=>{localStorage.removeItem("token"); window.reload()}} to="/login">{localStorage.getItem("token") ? "Logout" : "Login"}</Link> 
+         <Link onClick={()=>{localStorage.removeItem("token"); window.reload()}} to="/Login">{localStorage.getItem("token") ? "Logout" : "Login"}</Link> 
       </div>
     </div>
   );
