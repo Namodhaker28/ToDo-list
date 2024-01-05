@@ -1,5 +1,4 @@
-.container{
-    /* box-sizing: content-box; */
+/* .container{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -17,6 +16,62 @@
 
 .links a{
     text-decoration: none;
-    /* color: black; */
-}
+} */
+
+/* Reset some default styles and add basic styling */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #3498db; /* Change this to your desired background color */
+  }
+  
+  .logo a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .links a:hover {
+    color: #ecf0f1; /* Change this to your desired hover color */
+  }
+  
+  /* Media Query for responsiveness */
+  @media (max-width: 768px) {
+    .container {
+      align-items: flex-start;
+    }
+  
+    .links {
+      margin-top: 10px;
+    }
+  
+    .links a {
+      font-size: 1.2rem;
+    }
+  }
+  
 

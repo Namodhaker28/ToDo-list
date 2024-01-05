@@ -2,6 +2,7 @@ import React , {useState}from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { config } from "../config";
+import styles from "./login.css";
 
 export default function  Login() {
     const [password,setPassword]=useState()
@@ -39,7 +40,7 @@ export default function  Login() {
   return (
     <div className="container-fluid  d-flex flex-column align-items-center ">
       <h1 className="py-4 my-4">Login</h1>
-      <div class="mb-3 col-3" style={{width: "90%"}}>
+      <div class="mb-3 col-3" >
         <label for="exampleFormControlInput1" class="form-label">
           Email address
         </label>

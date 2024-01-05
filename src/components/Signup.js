@@ -41,7 +41,7 @@ export default function Signup() {
   return (
     <div className="container-fluid  d-flex flex-column align-items-center ">
       <h1 className="py-4 my-4">Signup</h1>
-      <div class="mb-3 col-3"  style={{width:"90%"}}>
+      <div class="mb-3 col-3" >
         <label for="exampleFormControlInput1" class="form-label fs-5">
           Name
         </label>
