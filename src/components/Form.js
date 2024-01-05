@@ -57,7 +57,7 @@ function Form(props) {
           setName(e.target.value);
         }}
       />
-      <button onClick={handleSubmit} className="btn btn__primary btn__lg">
+      <button onClick={handleSubmit} className="py-2 btn__primary btn__lg">
         Add
       </button>
     </div>
