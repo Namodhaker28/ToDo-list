@@ -95,7 +95,7 @@ body {
 }
 .btn__primary {
   color: #fff;
-  background-color: #000;
+  background: linear-gradient(to right, #3498db, #2c3e50);
 }
 .btn-group {
   display: flex;

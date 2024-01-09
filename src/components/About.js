@@ -22,11 +22,11 @@ export default function About() {
       }
     };
     getUserData()
-   
+
   }, []);
 
   return (
-    <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+    <div  class=" mt-4 mb-4 p-3 d-flex justify-content-center">
       {" "}
       <div class="card p-4">
         {" "}
@@ -46,25 +46,25 @@ export default function About() {
           <div class="d-flex flex-row justify-content-center align-items-center gap-2">
             {" "}
             <span class="idd1">{user?.phone}</span>{" "}
-      
+
           </div>{" "}
-          <div class="d-flex flex-row justify-content-center align-items-center mt-3">
+          {/* <div class="d-flex flex-row justify-content-center align-items-center mt-3">
             {" "}
             <span class="number">
               1069 <span class="follow">Followers</span>
             </span>{" "}
-          </div>{" "}
+          </div>{" "} */}
           <div class=" d-flex mt-2">
             {" "}
             <button class="btn1 btn-dark">Edit Profile</button>{" "}
           </div>{" "}
           <div class="text mt-3">
             {" "}
-            <p>
+            <p className="text-center" >
             You are not a drop in the ocean. You are the entire ocean in a drop.
-           
-              <br />  <br /><b>DEVELOPER/ TRADER</b> 
-           
+
+              <br />  <br /><b>DEVELOPER</b>
+
             </p>
           </div>{" "}
           <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center">
@@ -82,10 +82,9 @@ export default function About() {
             <i class="fa-brands fa-linkedin-in"></i>
             </span>{" "}
           </div>{" "}
-          <div class=" px-2 rounded mt-4 date ">
-            {" "}
-            <span class="join">{user?.joinedOn}</span>{" "}
-          </div>{" "}
+          <div class=" px-2 rounded mt-4  ">
+            <p >Joined on: { new Date(user?.joinedOn)?.toLocaleDateString() }</p>{" "}
+          </div>
         </div>{" "}
       </div>
     </div>

@@ -3,6 +3,7 @@ import { Link ,useNavigate} from "react-router-dom";
 import axios from 'axios';
 import swal from 'sweetalert'
 import { config } from '../config';
+import  "./login.css";
 
 export default function Signup() {
     const [password,setPassword]=useState()
@@ -22,6 +23,11 @@ export default function Signup() {
         }
         console.log("credentials",userDetails)
 
+        if (email  || password  || number  || name ){
+          swal("Oops!", "Please fill all the details" ,"error");
+          return
+        }
+
         try {
           const response = await  axios.post(`${backend}/signup`,userDetails,{
            headers :{ "Content-Type":"application/json"}
@@ -31,7 +37,7 @@ export default function Signup() {
           {
             navigate("/login")
           }
-          
+
         } catch (error) {
           swal("Oops!", error.response.data.message ,"error");
             console.log("errrr",error)
@@ -40,12 +46,12 @@ export default function Signup() {
 
   return (
     <div className="container-fluid  d-flex flex-column align-items-center ">
-      <h1 className="py-4 my-4">Signup</h1>
+      <h1 className="py-4 my-4"></h1>
       <div class="mb-3 col-3" >
         <label for="exampleFormControlInput1" class="form-label fs-5">
           Name
         </label>
-        <input 
+        <input
         value={name}
         onChange={(e)=>{setName(e.target.value)}}
           type="name"
@@ -56,7 +62,7 @@ export default function Signup() {
         <label for="exampleFormControlInput1" class="form-label fs-5">
           Phone Number
         </label>
-        <input 
+        <input
         value={number}
         onChange={(e)=>{setNumber(e.target.value)}}
           type="number"
@@ -67,7 +73,7 @@ export default function Signup() {
         <label for="exampleFormControlInput1" class="form-label fs-5">
           Email address
         </label>
-        <input 
+        <input
         value={email}
         onChange={(e)=>{setEmail(e.target.value)}}
           type="email"
@@ -78,7 +84,7 @@ export default function Signup() {
         <label for="inputPassword5" class="form-label fs-5">
           Password
         </label>
-        <input 
+        <input
         value={password}
         onChange={(e)=>{setPassword(e.target.value)}}
           type="password"
@@ -94,7 +100,7 @@ export default function Signup() {
             Register
           </button>
         </div>
-        Alredy have an account 
+        Alredy have an account
         <Link to="/Login" className="px-2">Login </Link>
       </div>
     </div>

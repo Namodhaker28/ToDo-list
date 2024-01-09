@@ -2,10 +2,11 @@
 
 .card {
     width: 350px;
-    background-color: #efefef;
+    background: linear-gradient(to right, #3498db, #2c3e50);
     border: none;
     cursor: pointer;
     transition: all 0.5s;
+    color: white;
 }
 
 .image img {
@@ -15,7 +16,7 @@
 .card:hover .image img {
     transform: scale(1.5)
 }
-/* 
+/*
 .btn {
     height: 140px;
     width: 140px;
