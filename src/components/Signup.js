@@ -8,7 +8,7 @@ import  "./login.css";
 export default function Signup() {
     const [password,setPassword]=useState()
     const [email,setEmail]=useState()
-    const [number,setNumber]=useState()
+    const [phone,setPhone]=useState()
     const [name,setName]=useState()
     const backend = config.backend_url
 
@@ -18,12 +18,12 @@ export default function Signup() {
         const userDetails = {
             email: email,
             password: password,
-            phone: number,
+            phone: phone,
             name: name,
         }
         console.log("credentials",userDetails)
 
-        if (email  || password  || number  || name ){
+        if (email  || password  || phone  || name ){
           swal("Oops!", "Please fill all the details" ,"error");
           return
         }
@@ -63,8 +63,8 @@ export default function Signup() {
           Phone Number
         </label>
         <input
-        value={number}
-        onChange={(e)=>{setNumber(e.target.value)}}
+        value={phone}
+        onChange={(e)=>{setPhone(e.target.value)}}
           type="number"
           class="form-control p-3"
           id="exampleFormControlInput1"
