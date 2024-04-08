@@ -23,7 +23,7 @@ export default function Signup() {
         }
         console.log("credentials",userDetails)
 
-        if (email  || password  || phone  || name ){
+        if (!email  || !password  || !phone  || !name ){
           swal("Oops!", "Please fill all the details" ,"error");
           return
         }
