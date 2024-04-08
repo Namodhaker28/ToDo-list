@@ -43,10 +43,12 @@ body {
 @media (max-width: 768px) {
   .container {
     align-items: flex-start;
+    padding:1rem;
   }
 
   .links {
-    margin-top: 10px;
+/*     margin-top: 10px; */
+    gap:4rem;
   }
 
   .links a {
